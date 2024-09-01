@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Button Generator</title>
+</head>
+
+<body>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #9b5c5c73;
+        }
+
+        input {
+            height: 30px;
+            font-size: 16pt;
+            text-align: center;
+            width: 60px;
+        }
+
+        label {
+            height: 30px;
+            font-size: 16pt;
+        }
+
+        button {
+            height: 30px;
+            font-size: 16pt;
+            text-align: center;
+            width: 60px;
+        }
+
+        .box {
+            height: 500px;
+            width: 500px;
+            background: lavenderblush;
+            border: 2px solid black;
+            box-shadow: -1px 1px 7px 0px black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            justify-content: space-between;
+        }
+
+        .input-box {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-box {
+            margin: auto;
+        }
+
+        .result-box {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+        }
+    </style>
+
+
+    <div class="box">
+        <div class="inputs">
+            <div class="input-box">
+                <label for="min">MIN</label>
+                <input id="min" />
+            </div>
+            <div class="input-box">
+                <label for="max">MAX</label>
+                <input id="max" />
+            </div>
+        </div>
+        <div class="button-box">
+            <button id="run">Click</button>
+        </div>
+        <div class="result-box">
+            <h1 id="result"></h1>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        document.getElementById("run").onclick = function () {
+            let min = document.getElementById("min").value
+            let max = document.getElementById("max").value
+            // if(min > max) {
+            //     let temp = min
+            //     min = max
+            //     max = temp
+            // }
+            const final = Math.floor(Math.random() * (max - min) + min);
+            document.getElementById("result").textContent = final
+        }
+
+
+    </script>
+</body>
+
+</html>
