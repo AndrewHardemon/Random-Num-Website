@@ -100,15 +100,12 @@
 
 
     <script>
-
+            document.getElementById("min").value = ""
+            document.getElementById("max").value = ""
         document.getElementById("run").onclick = function () {
-            let min = document.getElementById("min").value
-            let max = document.getElementById("max").value
-            // if(min > max) {
-            //     let temp = min
-            //     min = max
-            //     max = temp
-            // }
+            let min = +document.getElementById("min").value
+            let max = +document.getElementById("max").value
+
             const final = Math.floor(Math.random() * (max - min) + min);
             document.getElementById("result").textContent = final
         }
