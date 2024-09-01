@@ -38,7 +38,7 @@
         }
 
         .box {
-            height: 500px;
+            height: 800px;
             width: 500px;
             background: lavenderblush;
             border: 2px solid black;
@@ -75,6 +75,10 @@
             justify-content: center;
             position: absolute;
         }
+
+        #result {
+            width: 30px;
+        }
     </style>
 
 
@@ -87,6 +91,10 @@
             <div class="input-box">
                 <label for="max">MAX</label>
                 <input id="max" />
+            </div>
+            <div class="input-box">
+                <label for="num">NUM</label>
+                <input id="num" />
             </div>
         </div>
         <div class="button-box">
@@ -102,11 +110,20 @@
     <script>
             document.getElementById("min").value = ""
             document.getElementById("max").value = ""
+            document.getElementById("num").value = ""
         document.getElementById("run").onclick = function () {
             let min = +document.getElementById("min").value
             let max = +document.getElementById("max").value
+            let num = +document.getElementById("num").value
+            let final = ""
+            if(num > 0){
+                for(let i = 0; i < num; i++){ 
+                    final = final +  Math.floor(Math.random() * (max - min) + min) + "   ";
+                }
+            } else {
+                final = Math.floor(Math.random() * (max - min) + min);
+            }
 
-            const final = Math.floor(Math.random() * (max - min) + min);
             document.getElementById("result").textContent = final
         }
 
